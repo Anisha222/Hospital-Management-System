@@ -1,0 +1,223 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: url('r.jpg') no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Ensure the image covers the entire screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0; /* Remove default margin */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            padding: 50px; /* Increased padding for spacing */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333; /* Darker text color */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            color: #333; /* Darker text color */
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PATIENT REGISTRATION FORM</h1>
+        <form>
+            <label for="name">NAME:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">GENDER:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="bloodGroup">BLOOD GROUP:</label>
+            <input type="text" id="bloodGroup" name="bloodGroup" required>
+
+            <label for="email">EMAIL:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobileNo">MOBILE NO:</label>
+            <input type="tel" id="mobileNo" name="mobileNo" required>
+
+            <label for="address">ADDRESS:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <label for="privateCghs">PRIVATE/CGHS:</label>
+            <input type="radio" id="private" name="privateCghs" value="Private" required>
+            <label for="private">Private</label>
+            <input type="radio" id="cghs" name="privateCghs" value="CGHS">
+            <label for="cghs">CGHS</label>
+
+            <label for="cardPicture">Upload Card Picture:</label>
+            <input type="file" id="cardPicture" name="cardPicture" accept="image/*">
+
+            <button type="submit" class="submit-button">SUBMIT</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: url('r.jpg') no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Ensure the image covers the entire screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0; /* Remove default margin */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            padding: 50px; /* Increased padding for spacing */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333; /* Darker text color */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            color: #333; /* Darker text color */
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PATIENT REGISTRATION FORM</h1>
+        <form>
+            <label for="name">NAME:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">GENDER:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="bloodGroup">BLOOD GROUP:</label>
+            <input type="text" id="bloodGroup" name="bloodGroup" required>
+
+            <label for="email">EMAIL:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobileNo">MOBILE NO:</label>
+            <input type="tel" id="mobileNo" name="mobileNo" required>
+
+            <label for="address">ADDRESS:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+
+            <button type="submit" class="submit-button">SUBMIT</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('.upload-button').addEventListener('click', function () {
+            document.querySelector('input[type="file"]').click();
+        });
+    </script>
+</body>
+</html>

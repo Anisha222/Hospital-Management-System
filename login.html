@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thimphu Hospital Login</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: url('j.jpg') no-repeat center center fixed;
+            background-size: cover; /* Ensures the image covers the entire screen */
+        }
+        /* General body styling */
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container styling */
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 500px; /* Increased width of the container */
+        }
+
+        /* Heading styling */
+        h1 {
+            margin-bottom: 40px; /* Increased margin for spacing */
+            color: white;
+            background-color: #007BFF; /* Blue background for the heading */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Login button styling */
+        .login-button {
+            display: inline-block;
+            padding: 15px; /* Adjust padding to create square shape */
+            background-color: #007BFF; /* Blue background for the buttons */
+            color: white;
+            border: 2px solid white; /* Added white border */
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            text-decoration: none;
+            width: 120px; /* Fixed width for square shape */
+            height: 120px; /* Fixed height for square shape */
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px; /* Vertically center the text */
+        }
+
+        /* Icon inside the button */
+        .login-button img {
+            width: 30px; /* Adjust image size */
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        /* Hover effect for login buttons */
+        .login-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Page Heading -->
+        <h1>Thimphu Hospital</h1>
+
+        <!-- Admin Login Button -->
+        <a href="admin_login.html" class="login-button">
+            <img src="f.jpg" alt="Admin Icon">
+            AdminLogin
+        </a>
+
+        <!-- Doctor Login Button -->
+        <a href="doctor_login.html" class="login-button">
+            <img src="d.jpg" alt="Doctor Icon">
+            DoctorLogin
+        </a>
+
+        <!-- Patient Login Button -->
+        <a href="patient_login.html" class="login-button">
+            <img src="s.jpg" alt="Patient Icon">
+            PatientLogin
+        </a>
+    </div>
+
+</body>
+</html>
+
+

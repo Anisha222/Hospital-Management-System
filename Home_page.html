@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/animations.css">  
+    <link rel="stylesheet" href="css/main.css">  
+    <link rel="stylesheet" href="css/index.css">
+    <title>HMS</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: url('h.jpg') no-repeat center center fixed;
+            background-size: cover; /* Ensures the image covers the entire screen */
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for header */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .edoc-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .edoc-logo-sub {
+            font-size: 1rem;
+            color: gray;
+        }
+        .nav-item {
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-item:hover {
+            text-decoration: underline;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+        .heading-bold {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .sub-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        .blue-btn {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 15px; /* Add space between buttons */
+        }
+        .blue-btn:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <font class="edoc-logo">HMS </font>
+            <font class="edoc-logo-sub">| Hospital Management System</font>
+        </div>
+        <div class="dropdown">
+            <button class="nav-item">Language</button>
+            <div class="dropdown-content">
+                <a href="#">Dzongkhag</a>
+                <a href="#">English</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <table border="0">
+            <tr>
+                <td colspan="3">
+                    <p class="heading-bold">Ease process, save time.</p>
+                    <p class="sub-text">
+                        Feeling under the weather today? No need to fret. With HMS,<br>
+                        you can easily connect with healthcare professionals and schedule appointments online.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <center>
+                        <a href="login.php">
+                            <input type="button" value="Login" class="blue-btn">
+                        </a>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <center>
+                        <a href="signup.php">
+                            <input type="button" value="Register" class="blue-btn">
+                        </a>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>
