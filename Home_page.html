@@ -44,30 +44,6 @@
         .nav-item:hover {
             text-decoration: underline;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
         main {
             flex: 1;
             display: flex;
@@ -101,7 +77,6 @@
             padding: 10px 25px;
             font-size: 1rem;
             cursor: pointer;
-            margin-bottom: 15px; /* Add space between buttons */
         }
         .blue-btn:hover {
             background-color: darkblue;
@@ -114,13 +89,7 @@
             <font class="edoc-logo">HMS </font>
             <font class="edoc-logo-sub">| Hospital Management System</font>
         </div>
-        <div class="dropdown">
-            <button class="nav-item">Language</button>
-            <div class="dropdown-content">
-                <a href="#">Dzongkhag</a>
-                <a href="#">English</a>
-            </div>
-        </div>
+        <a href="signup.php" class="nav-item">REGISTER</a>
     </header>
     <main>
         <table border="0">
@@ -136,17 +105,8 @@
             <tr>
                 <td colspan="3">
                     <center>
-                        <a href="login.php">
-                            <input type="button" value="Login" class="blue-btn">
-                        </a>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <center>
-                        <a href="signup.php">
-                            <input type="button" value="Register" class="blue-btn">
+                        <a href="login.html">
+                            <input type="button" value="Make Appointment" class="blue-btn">
                         </a>
                     </center>
                 </td>
