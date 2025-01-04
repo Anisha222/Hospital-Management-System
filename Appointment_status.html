@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appointment Summary</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    button {
+      background-color: #f44336; /* Red color for the cancel button */
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #d32f2f; /* Darker red on hover */
+    }
+  </style>
+</head>
+<body>
+  <h1>Appointment Summary</h1>
+  <table id="appointmentTable">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Doctor Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Action</th> <!-- Column for Cancel buttons -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Appointment rows will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Retrieve appointments from localStorage
+    const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+    const tableBody = document.querySelector('#appointmentTable tbody');
+
+    // Populate the table with appointment data
+    appointments.forEach((appointment, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${appointment.department}</td>
+        <td>${appointment.doctor}</td>
+        <td>${appointment.date}</td>
+        <td>${appointment.time}</td>
+        <td><button class="cancelBtn" data-index="${index}">Cancel</button></td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    // Add event listeners to each cancel button
+    const cancelButtons = document.querySelectorAll('.cancelBtn');
+    cancelButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const index = e.target.getAttribute('data-index');
+
+        // Remove the specific appointment
+        appointments.splice(index, 1);
+
+        // Save the updated appointments back to localStorage
+        localStorage.setItem('appointments', JSON.stringify(appointments));
+
+        // Remove the row from the table
+        e.target.parentElement.parentElement.remove();
+
+        // Notify the user
+        alert('The appointment has been canceled.');
+      });
+    });
+  </script>
+</body>
+</html>

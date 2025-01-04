@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient Recent Treatment Details</title>
+    <title>Doctor Registration Form</title>
     <style>
         body {
             font-family: sans-serif;
-            background: url('pictures/r.jpg') no-repeat center center fixed; /* Background image */
-            background-size: cover; /* Ensure the image covers the entire screen */
+            background: url('pictures/r.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0; /* Remove default margin */
+            margin: 0;
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-            padding: 50px; /* Increased padding for spacing */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative; /* For positioning relative elements inside */
+            position: relative;
             max-width: 400px;
-            width: 100%; /* Set a maximum width */
+            width: 100%;
         }
 
         h1 {
-            color: #333; /* Darker text color */
+            color: #333;
             text-align: center;
             margin-bottom: 30px;
         }
 
         label {
-            color: #333; /* Darker text color */
+            color: #333;
             font-weight: bold;
             display: block;
             margin-bottom: 10px;
@@ -47,19 +47,19 @@
         input[type="date"],
         input[type="email"],
         input[type="tel"],
+        input[type="number"],
         textarea,
-        select,
-        input[type="number"] {
+        select {
             width: 100%;
             padding: 15px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box; /* Ensure padding is included in width */
+            box-sizing: border-box;
         }
 
         textarea {
-            resize: vertical; /* Allow resizing vertically */
+            resize: vertical;
         }
 
         .submit-button {
@@ -127,25 +127,19 @@
     </script>
 </head>
 <body>
-    <a href="patient_login.html" class="back-button">Back</a>
+    <a href="Doctor_login.html" class="back-button">Back</a>
 
     <div class="container">
-        <h1>PATIENT RECENT TREATMENT DETAILS</h1>
-        <form action="patient_profile.html" method="get">
+        <h1>Doctor Register form</h1>
+        <form action="Doctor_profile.html" method="get">
             <div class="form-group">
                 <label for="name">NAME:</label>
                 <input type="text" id="name" name="name" required>
             </div>
 
             <div class="form-group">
-                <label for="dob">DOB:</label>
-                <input type="date" id="dob" name="dob" required onblur="validateDate()">
-                <div id="error-message" class="error-message"></div>
-            </div>
-
-            <div class="form-group">
                 <label for="age">AGE:</label>
-                <input type="number" id="age" name="age" readonly>
+                <input type="number" id="age" name="age" min="0" required>
             </div>
 
             <div class="form-group">
@@ -155,21 +149,6 @@
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Other">Other</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="bloodGroup">BLOOD GROUP:</label>
-                <select id="bloodGroup" name="bloodGroup" required>
-                    <option value=""></option>
-                    <option value="A">A+</option>
-                    <option value="A">A-</option>
-                    <option value="B">B+</option>
-                    <option value="B">B-</option>
-                    <option value="AB">AB+</option>
-                    <option value="AB">AB-</option>
-                    <option value="O">O+</option>
-                    <option value="O">O-</option>
                 </select>
             </div>
 
@@ -184,34 +163,13 @@
             </div>
 
             <div class="form-group">
-                <label for="address">ADDRESS:</label>
-                <textarea id="address" name="address" rows="4" required></textarea>
-            </div>
-
-            <!-- New fields for treatment details -->
-            <div class="form-group">
-                <label for="treatmentName">TREATMENT NAME:</label>
-                <input type="text" id="treatmentName" name="treatmentName" required>
+                <label for="specialization">SPECIALIZATION:</label>
+                <input type="text" id="specialization" name="specialization" placeholder="e.g., Cardiologist, Dermatologist" required>
             </div>
 
             <div class="form-group">
-                <label for="doctorName">DOCTOR NAME:</label>
-                <input type="text" id="doctorName" name="doctorName" required>
-            </div>
-
-            <div class="form-group">
-                <label for="prescription">PRESCRIPTION:</label>
-                <textarea id="prescription" name="prescription" rows="4" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="remark">REMARK:</label>
-                <textarea id="remark" name="remark" rows="3" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="advice">ADVICE:</label>
-                <textarea id="advice" name="advice" rows="3" required></textarea>
+                <label for="experience">EXPERIENCE (in years):</label>
+                <input type="number" id="experience" name="experience" min="0" placeholder="Enter years of experience" required>
             </div>
 
             <button type="submit" class="submit-button">SUBMIT</button>

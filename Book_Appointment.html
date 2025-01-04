@@ -7,124 +7,117 @@
       font-family: sans-serif;
       margin: 0;
       padding: 20px;
-      background-image: url('r.jpg'); /* Add the background image */
-      background-size: cover; /* Cover the entire page */
-      background-repeat: no-repeat; /* Prevent the image from repeating */
-      background-position: center; /* Center the image */
-      color: black; /* Default text color */
+      background-image: url('pictures/r.jpg'); /* Set the background image */
+      background-size: cover; /* Ensure the image covers the entire body */
+      background-position: center; /* Position the image at the center */
+      color: rgb(22, 21, 21); /* Text color to make sure it’s visible against the background */
+      position: relative; /* Needed for absolute positioning of the back button */
     }
-
-    .container {
+    .form-container {
       max-width: 600px;
-      margin: 0 auto;
-      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      margin: auto;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgba(250, 246, 246, 0.911); /* Semi-transparent background for better readability */
     }
-
-    .header {
-      text-align: center;
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
       margin-bottom: 20px;
     }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .form-box {
-      padding: 20px;
-    }
-
-    label {
-      display: inline-block;
-      width: 150px;
-      text-align: right;
-      margin-right: 10px;
-    }
-
-    select,
-    input[type="date"],
-    input[type="time"] {
-      width: 200px;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-
-    .buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-
     button {
-      padding: 10px 20px;
       background-color: #4CAF50;
       color: white;
       border: none;
-      border-radius: 3px;
       cursor: pointer;
-      margin: 0 5px;
+      padding: 6px 12px; /* Smaller button */
+      font-size: 14px;
+      width: auto;
     }
-
-    .mandatory {
-      color: red;
-      font-size: 12px;
+    button:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: black; /* Black background */
+      color: white; /* White text */
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px; /* More padding for a wider button */
+      font-size: 14px;
+      border-radius: 5px; /* Oval shape */
+    }
+    .back-button:hover {
+      background-color: #333; /* Darker black on hover */
     }
   </style>
 </head>
 <body>
+  <!-- Back Button at the top of the page -->
+  <button class="back-button" onclick="window.location.href='patient_profile.html'">Back</button>
 
-  <div class="container"><br><br>
+  <div class="form-container">
+    <h1>Book Appointment</h1>
+    <form id="bookingForm">
+      <label for="department">Select Department:</label>
+      <select id="department" required>
+        <option value="">Select</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Pediatrics">Pediatrics</option>
+      </select>
 
-    <div class="header">
-      <h1 class="logo">THIMPHU HOSPITAL</h1><br><br><br>
-    </div>
+      <label for="doctor">Select Doctor Name:</label>
+      <select id="doctor" required>
+        <option value="">Select</option>
+        <option value="Dr. Ugyen Dorji">Dr. Ugyen Dorji</option>
+        <option value="Dr. Karma Lhaki">Dr. Karma Lhaki</option>
+        <option value="Dr. Deki Dem">Dr. Deki Dem</option>
+      </select>
 
-    <!-- Form inside a styled box -->
-    <div class="form-box">
-      <form>
-        <div class="form-row">
-          <label for="department">Select Department:</label>
-          <select id="department">
-            <option value="">Select</option>
-            <option value="Cardiology">Cardiology</option>
-            <option value="Neurology">Neurology</option>
-            <option value="Pediatrics">Pediatrics</option>
-            <!-- Add more departments -->
-          </select>
-        </div><br>
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
 
-        <div class="form-row">
-          <label for="doctor">Select Doctor Name<span class="mandatory"></span>:</label>
-          <select id="doctor">
-            <option value="">Select</option>
-            <option value="Ugyen Dorji">Ugyen Dorji</option>
-            <option value="Karma Lhaki">Karma Lhaki</option>
-            <option value="Deki Dem">Deki Dem</option>
-            <!-- Populate with doctor names based on selected department -->
-          </select>
-        </div><br>
+      <label for="time">Time:</label>
+      <input type="time" id="time" required>
 
-        <div class="form-row">
-          <label for="date">Date<span class="mandatory"></span>:</label>
-          <input type="date" id="date" required>
-        </div><br>
-
-        <div class="form-row">
-          <label for="time">Time<span class="mandatory"></span>:</label>
-          <input type="time" id="time" required>
-        </div><br>
-
-        <div class="buttons">
-          <button type="submit">Book Appointment</button>
-          <button type="button">Cancle Appointment</button>
-        </div>
-      </form>
-    </div>
-
+      <button type="submit">Book Appointment</button>
+    </form>
   </div>
 
+  <script>
+    const form = document.getElementById('bookingForm');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const department = document.getElementById('department').value;
+      const doctor = document.getElementById('doctor').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      // Retrieve existing appointments or initialize an empty array
+      let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+      // Add new appointment to the array
+      appointments.push({ department, doctor, date, time });
+
+      // Save updated appointments back to localStorage
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+
+      // Show a success notification
+      alert('You have successfully booked the appointment.');
+
+      // Clear the form fields after the user clicks OK
+      form.reset();
+    });
+  </script>
 </body>
 </html>

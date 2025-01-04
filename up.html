@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Doctor</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add New Doctor</h2>
+
+        <table>
+            <tr>
+                <th>NAME</th>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <th>AGE</th>
+                <td><input type="number" name="age"></td>
+            </tr>
+            <tr>
+                <th>GENDER</th>
+                <td><input type="text" name="gender"></td>
+            </tr>
+            <tr>
+                <th>SPECIALIZATION</th>
+                <td><input type="text" name="specialization"></td>
+            </tr>
+            <tr>
+                <th>EXPERIENCE</th>
+                <td><input type="text" name="experience"></td>
+            </tr>
+            <tr>
+                <th>LANGUAGE SPOKEN</th>
+                <td><input type="text" name="language_spoken"></td>
+            </tr>
+            <tr>
+                <th>MOBILE NO.</th>
+                <td><input type="text" name="mobile_no"></td>
+            </tr>
+            <tr>
+                <th>EMAIL</th>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <th>SCHEDULE</th>
+                <td><input type="text" name="schedule"></td>
+            </tr>
+        </table>
+
+        <button type="submit">Add Doctor</button>
+    </div>
+
+</body>
+</html>

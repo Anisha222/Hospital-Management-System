@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Schedule</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #555;
+    }
+
+    #schedule-container {
+      width: 80%;
+      margin: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    td {
+      background-color: #fafafa;
+    }
+
+    td img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    /* Section for Today and Past Appointments */
+    #schedule-container > div {
+      margin-bottom: 20px;
+    }
+
+    /* Styling for Cancel Icon */
+    td img:hover {
+      opacity: 0.7;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Appointment Schedule</h1>
+
+  <div id="schedule-container">
+    <!-- Today's Schedule -->
+    <div id="today">
+      <h2>Today: 25/02/18, Wednesday</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>P_ID</th>
+            <th>Name</th>
+            <th>Schedule</th>
+            <th>Status</th>
+            <th>Cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Esha09</td>
+            <td>Esha Bisht</td>
+            <td>Wednesday (2:30PM)</td>
+            <td>Confirmed</td>
+            <td><img src="cancel-icon.png" alt="Cancel" onclick="cancelAppointment('Esha09')"></td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Past Appointments -->
+    <div id="past-appointments">
+      <h2>23/02/18, Monday</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>P_ID</th>
+            <th>Name</th>
+            <th>Schedule</th>
+            <th>Status</th>
+            <th>Cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Esha09</td>
+            <td>Esha Bisht</td>
+            <td>Monday (10:30AM)</td>
+            <td>Cancelled</td>
+            <td><img src="cancel-icon.png" alt="Cancel" onclick="cancelAppointment('Esha09')"></td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function cancelAppointment(patientId) {
+      alert('Appointment for ' + patientId + ' has been cancelled.');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appointment Summary</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Appointment Summary</h1>
+  <table id="appointmentTable">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Doctor Name</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Appointment rows will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Retrieve appointments from localStorage
+    const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+    const tableBody = document.querySelector('#appointmentTable tbody');
+
+    // Populate the table with appointment data
+    appointments.forEach(appointment => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${appointment.department}</td>
+        <td>${appointment.doctor}</td>
+        <td>${appointment.date}</td>
+        <td>${appointment.time}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>

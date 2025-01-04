@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient Login</title>
+    <title>Admin Login</title>
     <style>
         body {
             margin: 0;
@@ -85,24 +85,39 @@
     <a href="login.html" class="back-button">Back</a>
 
     <div class="container">
-        <h1>PATIENT LOGIN</h1>
+        <h1>ADMIN LOGIN</h1>
 
-        <form>
+        <form id="loginForm">
             <label for="cid">CID:</label>
-            <input type="text" id="cid" name="cid" maxlength="11" pattern="\d{11}" required title="CID must be an 11-digit number">
+            <input type="text" id="cid" name="cid" maxlength="11" required title="CID must be an 11-digit number">
 
             <label for="password">PASSWORD:</label>
             <input type="password" id="password" name="password" minlength="8" required pattern="(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}" title="Password must be at least 8 characters long, with letters, numbers, and a special character">
 
-            <button type="button" class="login-button" onclick="redirectToRegistration()">LOGIN</button>
+            <button type="button" class="login-button" onclick="validateForm()">LOGIN</button>
         </form>
 
-        <p>NEW USER? <a href="Registration.html">REGISTER...</a></p>
+        <p>NEW USER? <a href="Doctor_Registration.html">REGISTER...</a></p>
     </div>
 
     <script>
-        function redirectToRegistration() {
-            window.location.href = 'Registration.html';
+        function validateForm() {
+            const form = document.getElementById('loginForm');
+            const cid = document.getElementById('cid').value;
+            const password = document.getElementById('password').value;
+
+            if (!cid || !password) {
+                alert('All fields are required. Please fill in the empty spaces.');
+                return;
+            }
+
+            const cidPattern = /^\d{11}$/;
+            if (!cidPattern.test(cid)) {
+                alert('Invalid CID. Please enter an 11-digit number.');
+                return;
+            }
+
+            form.submit();
         }
     </script>
 </body>
