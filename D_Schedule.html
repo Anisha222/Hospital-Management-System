@@ -72,9 +72,30 @@
       opacity: 0.7;
     }
 
+    /* Back Button Style */
+    #back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background-color: #1c1d1d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #back-button:hover {
+      background-color: #0f0f0f;
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- Back Button -->
+  <button id="back-button" onclick="goBack()">Back</button>
 
   <h1>Appointment Schedule</h1>
 
@@ -129,6 +150,10 @@
   <script>
     function cancelAppointment(patientId) {
       alert('Appointment for ' + patientId + ' has been cancelled.');
+    }
+
+    function goBack() {
+      window.location.href = 'Doctor_Profile.html';  // Navigate to Doctor_Profile.html
     }
   </script>
 
