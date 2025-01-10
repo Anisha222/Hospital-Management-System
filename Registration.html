@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient Registration Form</title>
+    <title>Patient Recent Treatment Details</title>
     <style>
         body {
             font-family: sans-serif;
@@ -30,6 +30,14 @@
             margin-bottom: 30px;
         }
 
+        h2 {
+            color: #444; /* Slightly lighter text color */
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
         label {
             color: #333; /* Darker text color */
             font-weight: bold;
@@ -37,7 +45,6 @@
             margin-bottom: 10px;
         }
 
-        /* Container for form fields to make them equal in width and height */
         .form-group {
             display: flex;
             flex-direction: column;
@@ -93,7 +100,6 @@
             background-color: #191a19;
         }
 
-        /* Style for error message */
         .error-message {
             color: red;
             font-size: 14px;
@@ -101,7 +107,6 @@
         }
     </style>
     <script>
-        // Function to validate the date and calculate age
         function validateDate() {
             const dobInput = document.getElementById('dob');
             const errorMessage = document.getElementById('error-message');
@@ -109,7 +114,6 @@
             const enteredDate = new Date(dobInput.value);
             const currentDate = new Date();
 
-            // Check if the entered date is in the future
             if (enteredDate > currentDate) {
                 errorMessage.textContent = 'Invalid date!';
                 dobInput.setCustomValidity('Invalid date');
@@ -118,11 +122,9 @@
                 errorMessage.textContent = '';
                 dobInput.setCustomValidity('');
 
-                // Calculate age
                 const age = currentDate.getFullYear() - enteredDate.getFullYear();
                 const monthDifference = currentDate.getMonth() - enteredDate.getMonth();
 
-                // If birthday hasn't occurred yet this year, subtract one from age
                 if (monthDifference < 0 || (monthDifference === 0 && currentDate.getDate() < enteredDate.getDate())) {
                     ageInput.value = age - 1;
                 } else {
@@ -133,12 +135,10 @@
     </script>
 </head>
 <body>
-    <!-- Back Button -->
     <a href="patient_login.html" class="back-button">Back</a>
 
     <div class="container">
-        <h1>PATIENT REGISTER FORM</h1>
-        <!-- Updated form action to navigate to the patient_profile.html page -->
+        <h1>Patient Details</h1>
         <form action="patient_profile.html" method="get">
             <div class="form-group">
                 <label for="name">NAME:</label>
@@ -148,10 +148,9 @@
             <div class="form-group">
                 <label for="dob">DOB:</label>
                 <input type="date" id="dob" name="dob" required onblur="validateDate()">
-                <div id="error-message" class="error-message"></div> <!-- Error message div -->
+                <div id="error-message" class="error-message"></div>
             </div>
 
-            <!-- Age field -->
             <div class="form-group">
                 <label for="age">AGE:</label>
                 <input type="number" id="age" name="age" readonly>
@@ -192,9 +191,21 @@
                 <input type="tel" id="mobileNo" name="mobileNo" required>
             </div>
 
+            <h2>Patient Recent Treatment Details</h2>
+
             <div class="form-group">
-                <label for="address">ADDRESS:</label>
-                <textarea id="address" name="address" rows="4" required></textarea>
+                <label for="treatmentName">TREATMENT NAME:</label>
+                <input type="text" id="treatmentName" name="treatmentName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="doctorName">DOCTOR NAME:</label>
+                <input type="text" id="doctorName" name="doctorName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prescription">PRESCRIPTION:</label>
+                <textarea id="prescription" name="prescription" rows="4" required></textarea>
             </div>
 
             <button type="submit" class="submit-button">SUBMIT</button>

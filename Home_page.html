@@ -1,117 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/animations.css">  
-    <link rel="stylesheet" href="css/main.css">  
-    <link rel="stylesheet" href="css/index.css">
-    <title>HMS</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background: url('pictures/h.jpg') no-repeat center center fixed;
-            background-size: cover; /* Ensures the image covers the entire screen */
-        }
-        header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for header */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .edoc-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .edoc-logo-sub {
-            font-size: 1rem;
-            color: gray;
-        }
-        .nav-item {
-            font-size: 1rem;
-            color: #007bff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .nav-item:hover {
-            text-decoration: underline;
-        }
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        table {
-            animation: transitionIn-Y-bottom 0.5s;
-        }
-        .heading-bold {
-            font-weight: bold;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-        .sub-text {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-top: 20px;
-        }
-        .blue-btn {
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 25px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .blue-btn:hover {
-            background-color: darkblue;
-        }
-    </style>
+  <title>Hospital Patient Profile</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url('pictures/r.jpg'); /* Add background image */
+      background-size: cover; /* Ensure the image covers the whole page */
+      background-position: center; /* Center the image */
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background-color: rgba(240, 240, 240, 0.8); /* Slightly transparent background for readability */
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu-button {
+      position: fixed; /* Fixed position to keep it on the page */
+      top: 20px;
+      left: 20px;
+      background-color: #0ed45a;
+      color: white;
+      border: none;
+      padding: 9px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000; /* Ensure it is above other content */
+    }
+
+    .menu {
+      display: none;
+      position: fixed; /* Make the menu fixed in the background */
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: rgb(236, 245, 236);
+      border-right: 1px solid #f5f3f3;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 999; /* Ensure it is below the menu button */
+      overflow-y: auto;
+    }
+
+    .menu-item {
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item:hover {
+      background-color: #f0f0f0;
+    }
+
+    .close-menu {
+      display: block;
+      text-align: right;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .patient-info {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background for readability */
+    }
+
+    .patient-details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .sidebar {
+      float: right;
+      width: 250px;
+      margin-left: 20px;
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      const menuButton = document.getElementById('menu-button');
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        menuButton.style.display = 'block';
+      } else {
+        menu.style.display = 'block';
+        menuButton.style.display = 'none';
+      }
+    }
+
+    function logout() {
+      window.location.href = 'login.html';
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <div>
-            <font class="edoc-logo">HMS </font>
-            <font class="edoc-logo-sub">| Hospital Management System</font>
+
+  <div class="container">
+
+    <div class="header">
+      <button id="menu-button" class="menu-button" onclick="toggleMenu()">☰</button>
+      <div id="menu" class="menu">
+        <div class="close-menu" onclick="toggleMenu()">&times;</div>
+        <div class="menu-item">Profile</div>
+        <div class="menu-item">
+          <a href="Book_Appointment.html" style="text-decoration: none; color: inherit;">Book Appointment</a>
         </div>
-        <a href="signup.php" class="nav-item">REGISTER</a>
-    </header>
-    <main>
-        <table border="0">
-            <tr>
-                <td colspan="3">
-                    <p class="heading-bold">Ease process, save time.</p>
-                    <p class="sub-text">
-                        Feeling under the weather today? No need to fret. With HMS,<br>
-                        you can easily connect with healthcare professionals and schedule appointments online.
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <center>
-                        <a href="login.html">
-                            <input type="button" value="Make Appointment" class="blue-btn">
-                        </a>
-                    </center>
-                </td>
-            </tr>
-        </table>
-    </main>
+        <div class="menu-item">
+          <a href="Appointment_status.html" style="text-decoration: none; color: inherit;">Appointment Status</a>
+        </div>
+        <div class="menu-item">
+          <a href="Registration.html" style="text-decoration: none; color: inherit;">Update Details</a>
+        </div>
+        <div class="menu-item">View Doctor</div>
+        <!-- <div class="menu-item">Receipt of Payment</div> -->
+        <div class="menu-item" onclick="logout()">Logout</div>
+      </div>
+      <h1 class="logo">HOSPITAL SYSTEM</h1>
+    </div>
+
+    <div class="patient-info">
+      <h2>Patient Details</h2>
+      <div class="patient-details">
+        <span>Patient Name:</span>
+        <span>Pema Lhamo</span>
+      </div>
+      <div class="patient-details">
+        <span>D.O.B:</span>
+        <span>09/10/2000</span>
+      </div>
+      <div class="patient-details">
+        <span>Age:</span>
+        <span>18 years</span>
+      </div>
+      <div class="patient-details">
+        <span>Gender:</span>
+        <span>F</span>
+      </div>
+      <div class="patient-details">
+        <span>Blood Group:</span>
+        <span>A+</span>
+      </div>
+      <div class="patient-details">
+        <span>Email:</span>
+        <span>pemalhamo013@gmail.com</span>
+      </div>
+      <div class="patient-details">
+        <span>Address:</span>
+        <span>Babaysha</span>
+      </div>
+      <div class="patient-details">
+        <span>Mobile no.:</span>
+        <span>17666333</span>
+      </div>
+
+      <h2>Patient Recent Treatment Details</h2>
+      <!-- <div class="patient-details">
+        <span>Patient ID:</span>
+        <span>Pema09</span>
+      </div> -->
+      <div class="patient-details">
+        <span>Treatment Name:</span>
+        <span>Nose Problem</span>
+      </div>
+      <div class="patient-details">
+        <span>Doctor Name:</span>
+        <span>Dr. Ugyen Dorji, ENT Specialist</span>
+      </div>
+      <div class="patient-details">
+        <span>Prescription:</span>
+        <span>Fluticasone/Mometasone Nose Spray</span>
+      </div>
+      <!-- <div class="patient-details">
+        <span>Remark:</span>
+        <span>Use at Bedtime.</span>
+      </div> -->
+      <!-- <div class="patient-details">
+        <span>Advice:</span>
+        <span>You don't get the full effect for several days or even a week, but if you use it daily, it'll be incredibly effective.</span>
+      </div> -->
+    </div>
+  </div>
+
 </body>
 </html>

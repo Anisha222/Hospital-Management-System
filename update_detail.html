@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Information</title>
+  <style>
+    /* Your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .search-box {
+      margin-bottom: 20px;
+    }
+    .search-box label {
+      margin-right: 10px;
+    }
+    .search-box input {
+      padding: 5px;
+      font-size: 16px;
+    }
+    .search-box button {
+      padding: 5px 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .search-box button:hover {
+      background: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    table th {
+      background-color: #f4f4f4;
+    }
+    .buttons {
+      text-align: center;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      margin: 5px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Doctor Information</h2>
+
+    <div class="search-box">
+      <label for="doctor-id">Enter Doctor ID:</label>
+      <input type="text" id="doctor-id" name="doctor-id">
+      <button type="submit">Search</button>
+    </div>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <td>Akansha Rathi</td>
+      </tr>
+      <tr>
+        <th>Age</th>
+        <td>35</td>
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <td>Female</td>
+      </tr>
+      <tr>
+        <th>Specialization</th>
+        <td>Nasal</td>
+      </tr>
+      <tr>
+        <th>Experience</th>
+        <td>18 years</td>
+      </tr>
+      <tr>
+        <th>Languages Spoken</th>
+        <td>English, Hindi, Urdu</td>
+      </tr>
+      <tr>
+        <th>Contact Details</th>
+        <td>
+          Mobile No.: +91-8945639342<br>
+          Email: Akansha12@gmail.com
+        </td>
+      </tr>
+      <tr>
+        <th>Schedule</th>
+        <td>
+          <table>
+            <tr>
+              <th>Monday</th>
+              <th>Wednesday</th>
+              <th>Friday</th>
+            </tr>
+            <tr>
+              <td>9:00 AM - 12:00 PM</td>
+              <td>2:00 PM - 4:00 PM</td>
+              <td>12:00 PM - 3:00 PM</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <div class="buttons">
+      <button id="edit-button">Edit Details</button>
+      <button id="remove-button">Remove Doctor</button>
+    </div>
+  </div>
+
+</body>
+</html>
