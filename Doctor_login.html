@@ -94,15 +94,14 @@
             <label for="password">PASSWORD:</label>
             <input type="password" id="password" name="password" minlength="8" required pattern="(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}" title="Password must be at least 8 characters long, with letters, numbers, and a special character">
 
-            <button type="button" class="login-button" onclick="validateForm()">LOGIN</button>
+            <button type="button" class="login-button" onclick="redirectToProfile()">LOGIN</button>
         </form>
 
         <p>NEW USER? <a href="Doctor_Registration.html">REGISTER...</a></p>
     </div>
 
     <script>
-        function validateForm() {
-            const form = document.getElementById('loginForm');
+        function redirectToProfile() {
             const cid = document.getElementById('cid').value;
             const password = document.getElementById('password').value;
 
@@ -117,7 +116,8 @@
                 return;
             }
 
-            form.submit();
+            // Redirect to the Doctor Profile page
+            window.location.href = 'Doctor_Profile.html';
         }
     </script>
 </body>

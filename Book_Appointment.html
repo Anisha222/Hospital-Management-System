@@ -29,6 +29,10 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
     }
     button {
       background-color: #4CAF50;
@@ -66,6 +70,10 @@
   <div class="form-container">
     <h1>Book Appointment</h1>
     <form id="bookingForm">
+      <!-- Name Input Field -->
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
       <label for="department">Select Department:</label>
       <select id="department" required>
         <option value="">Select</option>
@@ -86,7 +94,17 @@
       <input type="date" id="date" required>
 
       <label for="time">Time:</label>
-      <input type="time" id="time" required>
+      <select id="time" required>
+        <option value="">Select</option>
+        <option value="09:00-10:00">09:00 AM - 10:00 AM</option>
+        <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+        <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+        <option value="12:00-01:00">12:00 PM - 01:00 PM</option>
+        <option value="01:00-02:00">01:00 PM - 02:00 PM</option>
+        <option value="02:00-03:00">02:00 PM - 03:00 PM</option>
+        <option value="03:00-04:00">03:00 PM - 04:00 PM</option>
+        <option value="04:00-05:00">04:00 PM - 05:00 PM</option>
+      </select>
 
       <button type="submit">Book Appointment</button>
     </form>
@@ -98,6 +116,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      const name = document.getElementById('name').value; // Get the name input value
       const department = document.getElementById('department').value;
       const doctor = document.getElementById('doctor').value;
       const date = document.getElementById('date').value;
@@ -106,8 +125,8 @@
       // Retrieve existing appointments or initialize an empty array
       let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
 
-      // Add new appointment to the array
-      appointments.push({ department, doctor, date, time });
+      // Add new appointment to the array with the name field included
+      appointments.push({ name, department, doctor, date, time });
 
       // Save updated appointments back to localStorage
       localStorage.setItem('appointments', JSON.stringify(appointments));

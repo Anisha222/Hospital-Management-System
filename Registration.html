@@ -55,6 +55,7 @@
         input[type="date"],
         input[type="email"],
         input[type="tel"],
+        input[type="password"],
         textarea,
         select,
         input[type="number"] {
@@ -132,6 +133,34 @@
                 }
             }
         }
+
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('password-error');
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match!';
+                document.getElementById('confirmPassword').setCustomValidity('Passwords do not match');
+            } else {
+                errorMessage.textContent = '';
+                document.getElementById('confirmPassword').setCustomValidity('');
+            }
+        }
+
+        function validatePhoneNumber() {
+            const phoneInput = document.getElementById('mobileNo');
+            const phonePattern = /^(17|77)\d{6}$/; // Starts with 17 or 77 followed by 6 digits
+            const errorMessage = document.getElementById('phone-error');
+
+            if (!phonePattern.test(phoneInput.value)) {
+                errorMessage.textContent = 'Phone number must start with 17 or 77 and be 8 digits long.';
+                phoneInput.setCustomValidity('Invalid phone number');
+            } else {
+                errorMessage.textContent = '';
+                phoneInput.setCustomValidity('');
+            }
+        }
     </script>
 </head>
 <body>
@@ -188,7 +217,20 @@
 
             <div class="form-group">
                 <label for="mobileNo">MOBILE NO:</label>
-                <input type="tel" id="mobileNo" name="mobileNo" required>
+                <input type="tel" id="mobileNo" name="mobileNo" required onblur="validatePhoneNumber()">
+                <div id="phone-error" class="error-message"></div>
+            </div>
+
+            <!-- Password Fields -->
+            <div class="form-group">
+                <label for="password">PASSWORD:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">CONFIRM PASSWORD:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required onblur="validatePassword()">
+                <div id="password-error" class="error-message"></div>
             </div>
 
             <h2>Patient Recent Treatment Details</h2>
@@ -207,8 +249,14 @@
                 <label for="prescription">PRESCRIPTION:</label>
                 <textarea id="prescription" name="prescription" rows="4" required></textarea>
             </div>
+            <div>
+                <form action="patient_profile.html" method="get">
+                  <!-- Form fields here -->
+              
+                  <button type="submit" class="submit-button">SUBMIT</button>
+              </form>
 
-            <button type="submit" class="submit-button">SUBMIT</button>
+            <!-- <button type="submit" class="submit-button">SUBMIT</button> -->
         </form>
     </div>
 </body>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Login</title>
     <style>
         body {
@@ -27,6 +29,7 @@
         h1 {
             color: #333;
             margin-bottom: 30px;
+            text-align: center;
         }
 
         label {
@@ -39,26 +42,39 @@
         input[type="text"],
         input[type="password"] {
             width: calc(100% - 30px);
-            padding: 15px;
+            padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             text-align: left;
         }
 
+        /* Left-aligned login button */
+        form {
+            text-align: left;
+        }
+
         .login-button {
             background-color: #1f1485;
             color: #fff;
-            padding: 15px 30px;
+            padding: 8px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
+            width: auto;
+            display: inline-block; /* Ensures alignment */
+            margin: 0; /* Ensures it stays left */
+        }
+
+        .login-button:hover {
+            background-color: #141060;
         }
 
         p {
-            margin-top: 30px;
+            margin-top: 20px;
             color: #333;
+            text-align: center;
         }
 
         .back-button {
@@ -78,6 +94,16 @@
         .back-button:hover {
             background-color: #0a0a0a;
         }
+
+        a {
+            color: #1f1485;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -87,22 +113,35 @@
     <div class="container">
         <h1>PATIENT LOGIN</h1>
 
-        <form>
+        <!-- Updated Form with Left-Aligned Login Button -->
+        <form onsubmit="redirectToProfile(event)">
             <label for="cid">CID:</label>
             <input type="text" id="cid" name="cid" maxlength="11" pattern="\d{11}" required title="CID must be an 11-digit number">
 
             <label for="password">PASSWORD:</label>
             <input type="password" id="password" name="password" minlength="8" required pattern="(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}" title="Password must be at least 8 characters long, with letters, numbers, and a special character">
 
-            <button type="button" class="login-button" onclick="redirectToRegistration()">LOGIN</button>
+            <button type="submit" class="login-button">LOGIN</button>
         </form>
 
         <p>NEW USER? <a href="Registration.html">REGISTER...</a></p>
     </div>
 
     <script>
-        function redirectToRegistration() {
-            window.location.href = 'Registration.html';
+        function redirectToProfile(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve values from input fields
+            var cid = document.getElementById("cid").value;
+            var password = document.getElementById("password").value;
+
+            // Simple client-side validation check
+            if (cid.length === 11 && password.length >= 8) {
+                // Redirect to the patient profile page
+                window.location.href = "patient_profile.html";
+            } else {
+                alert("Please enter valid CID and Password.");
+            }
         }
     </script>
 </body>
